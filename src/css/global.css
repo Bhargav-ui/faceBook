@@ -1,15 +1,15 @@
-.full-height{
-    min-height: 100vh;
+.full-height {
+  min-height: 100vh;
 }
 
-.fb-mt-5{
-    margin-top: 6rem !important;
+.fb-mt-5 {
+  margin-top: 6rem !important;
 }
 
-.fb-bg{
-    background-color: #F0F2F5 !important;
+.fb-bg {
+  background-color: #f0f2f5 !important;
 }
 
-.shadow{
-    box-shadow:0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+.shadow {
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
