@@ -18,3 +18,21 @@
   padding-right: 16px; 
   display: block;
 }
+.fixed-top-padding{
+padding-top: 75px;
+}
+
+.img-round{
+  border-radius: 50% !important;
+}
+
+/* Links companent styles begin */
+.link-icon{
+  width:36px;
+  height:36px;
+}
+.links-bg:hover{
+background-color: rgb(224, 224, 224);
+}
+
+/* Links companent styles end */
