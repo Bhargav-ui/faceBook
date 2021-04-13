@@ -1,5 +1,9 @@
+import Posts from "../Posts/Posts";
+
 const Wall = () => {
-  return <div className="text-center">Wall</div>;
+  return (
+    <Posts />
+  );
 };
 
 export default Wall;

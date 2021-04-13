@@ -1,5 +1,8 @@
 import { useState } from "react";
 import barghav from "../../images/barghav.jpg";
+import LeftNavLink from "./LeftNavLink";
+
+
 
 const Links = () => {
   const [linksData, setLinksdata] = useState([
@@ -15,13 +18,8 @@ const Links = () => {
   ]);
   return (
     <>
-      {linksData.map((link) => (
-        <div className="media links-bg p-2 rounded-left">
-          <img src={link.imagePath} alt="" className="link-icon img-round" />
-          <div className="media-body p-2">
-            <h6>{link.titletext}</h6>
-          </div>
-        </div>
+      {linksData.map((link, i) => (
+        <LeftNavLink linkData={link} key={i} />
       ))}
     </>
   );
