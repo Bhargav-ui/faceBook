@@ -36,3 +36,17 @@ background-color: rgb(224, 224, 224);
 }
 
 /* Links companent styles end */
+
+/* Post styles begin */
+.fb-no-margin-bottom{
+  margin-bottom: 0px !important;
+}
+.fb-right{
+  float: right;
+  display: inline;
+}
+.fb-left{
+  float:left;
+  display: inline;
+}
+/* Post styles end */
