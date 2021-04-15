@@ -6,7 +6,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Post = ({ postData }) => {
+const Post = ({ postData, onLikeClicked, onUnLikeClicked }) => {
+  const likeClicked = () => {
+    console.log("like clicked", postData.post_id);
+    onLikeClicked(postData.post_id);
+  };
+
+  const unLikeClicked = () => {
+    console.log("unlike clicked", postData.post_id);
+    onUnLikeClicked(postData.post_id);
+  };
+
   return (
     <div className="card mt-4">
       <div className="card-body">
@@ -43,6 +53,26 @@ const Post = ({ postData }) => {
           )}
         </div>
         <div className="fb-right text-right">Comments</div>
+      </div>
+      <div className="card-body">
+        <hr />
+        <div className="row">
+          <div className="col-lg-3 text-center">
+            {postData.is_liked == "true" && (
+              <div className="text-primary" onClick={unLikeClicked}>
+                <FontAwesomeIcon icon={faThumbsUp} /> Like
+              </div>
+            )}
+            {postData.is_liked == "false" && (
+              <div onClick={likeClicked}>
+                <FontAwesomeIcon icon={faThumbsUp} /> Like
+              </div>
+            )}
+          </div>
+          <div className="col-lg-3 text-center">Comment</div>
+          <div className="col-lg-3 text-center">Share</div>
+          <div className="col-lg-2 text-right">Profile</div>
+        </div>
       </div>
     </div>
   );
