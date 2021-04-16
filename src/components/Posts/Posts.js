@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { getPostsApi } from "../../apis/GetPosts";
-import { postLikeApi, postUnLikeApi } from "../../apis/PostActions";
+import {
+  postLikeApi,
+  postUnLikeApi,
+  commentAddApi,
+} from "../../apis/PostActions";
 import Post from "./Post";
 
 const Posts = () => {
@@ -58,17 +62,38 @@ const Posts = () => {
     });
   };
 
+  const addComment = (post_id, comment) => {
+    commentAddApi("react app", userId, post_id, comment).then((response) => {
+      if (response.data.result == "success") {
+        setPosts(
+          posts.map((post) => {
+            if (post.post_id == post_id) {
+              let newComment = {
+                comment: comment,
+                comment_id: "1254",
+                user_id: userId,
+                user_name: localStorage.getItem("user_name"),
+                user_pic: localStorage.getItem("profile_pic"),
+              };
+              post.comments.push(newComment);
+            }
+            return post;
+          })
+        );
+      }
+    });
+  };
+
   return (
     <>
       {posts.map((post, i) => (
-
         <Post
           postData={post}
           key={i}
           onLikeClicked={postLiked}
           onUnLikeClicked={postUnLiked}
+          addComment={addComment}
         />
-
       ))}
       <br />
       <br />
