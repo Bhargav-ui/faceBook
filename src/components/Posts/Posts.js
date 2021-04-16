@@ -23,19 +23,19 @@ const Posts = () => {
 
   const postLiked = (post_id) => {
     postLikeApi("react app", userId, post_id).then((response) => {
-      if( response.data.result == "success"){
-        
-       setPosts(
+      if (response.data.result == "success") {
 
-          posts.map( (post) => {
+        setPosts(
 
-            if( post.post_id == post_id){
+          posts.map((post) => {
+
+            if (post.post_id == post_id) {
               post.is_liked = "true";
             }
             return post;
 
           })
-          
+
         );
         console.log(posts);
 
@@ -45,14 +45,14 @@ const Posts = () => {
 
   const postUnLiked = (post_id) => {
     postUnLikeApi("react app", userId, post_id).then((response) => {
-      if( response.data.result == "success"){
+      if (response.data.result == "success") {
 
-        setPosts( posts.map( (post) => {
-          if(post.post_id == post_id){
+        setPosts(posts.map((post) => {
+          if (post.post_id == post_id) {
             post.is_liked = "false";
           }
           return post;
-        }) );
+        }));
 
       }
     });
@@ -61,7 +61,7 @@ const Posts = () => {
   return (
     <>
       {posts.map((post, i) => (
-        
+
         <Post
           postData={post}
           key={i}
