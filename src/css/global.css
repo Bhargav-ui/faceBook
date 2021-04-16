@@ -50,3 +50,8 @@ background-color: rgb(224, 224, 224);
   display: inline;
 }
 /* Post styles end */
+.fb-absol{
+  position: absolute;
+  right:5%;
+  
+}

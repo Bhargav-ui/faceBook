@@ -5,8 +5,19 @@ import {
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import Comments from "./Comments";
+import CommentAdd from "./CommentAdd";
 
-const Post = ({ postData, onLikeClicked, onUnLikeClicked }) => {
+const Post = ({ postData, onLikeClicked, onUnLikeClicked, addComment }) => {
+
+
+  const [displayComments, setDisplayComments] = useState(false)
+
+  const displayCommentsClicked = () =>{
+    setDisplayComments(true);
+  }
+
   const likeClicked = () => {
     console.log("like clicked", postData.post_id);
     onLikeClicked(postData.post_id);
@@ -16,6 +27,7 @@ const Post = ({ postData, onLikeClicked, onUnLikeClicked }) => {
     console.log("unlike clicked", postData.post_id);
     onUnLikeClicked(postData.post_id);
   };
+
 
   return (
     <div className="card mt-4">
@@ -69,11 +81,27 @@ const Post = ({ postData, onLikeClicked, onUnLikeClicked }) => {
               </div>
             )}
           </div>
-          <div className="col-lg-3 text-center">Comment</div>
+          <div className="col-lg-3 text-center" onClick={displayCommentsClicked} >Comment</div>
           <div className="col-lg-3 text-center">Share</div>
           <div className="col-lg-2 text-right">Profile</div>
         </div>
       </div>
+      
+        { 
+          displayComments && 
+          <div className="card-body"> <CommentAdd postid={postData.post_id} addComment={addComment} /> </div>
+        }
+        
+        { displayComments && <div className="card-body">
+        
+          { postData.comments.map((comment, i) => (
+            <Comments comment={comment} key={i} />
+          ))
+          }
+        </div>
+        }
+      
+
     </div>
   );
 };

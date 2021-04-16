@@ -53,12 +53,17 @@ const Login = () =>{
             LoginApi(email, password).then(
                 (response) => {
                     let data = response.data;
-                    if( data.result == "failed"){
-                        setApiErrorMsg(data.msg)
-                    }else{
-                        setApiErrorMsg("")
-                        localStorage.setItem("user_id", data.data.user_id);
-                        history.push("/home")
+                    if (data.result == "failed") {
+                      setApiErrorMsg(data.msg);
+                    } else {
+                      setApiErrorMsg("");
+                      localStorage.setItem("user_id", data.data.user_id);
+                      localStorage.setItem(
+                        "profile_pic",
+                        data.data.profile_pic
+                      );
+                      localStorage.setItem("user_name", data.data.user_name);
+                      history.push("/home");
                     }
                 }
             )

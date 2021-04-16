@@ -20,3 +20,16 @@ export const postUnLikeApi = (source, user_id, post_id) => {
     form
   );
 };
+
+export const commentAddApi = (source, user_id, post_id, commentText) => {
+  const form = new FormData();
+  form.append("source", source);
+  form.append("user_id", user_id);
+  form.append("post_id", post_id);
+  form.append("comment", commentText);
+
+  return axios.post(
+    "https://www.edstaack.com/api/learning/comment_add.php",
+    form
+  );
+};
