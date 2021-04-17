@@ -55,6 +55,16 @@ const Nav = () => {
               Groups
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/profile">
+              Profile
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/addresses">
+              Addresses
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
