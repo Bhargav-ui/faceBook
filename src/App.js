@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Profile from "./components/Profile/Profile";
 import RecoverPassword from "./components/Profile/RecoverPassword";
+import Addresses from "./components/Addresses/Addresses";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/recover_password" component={RecoverPassword} />
+          <Route exact path="/addresses" component={Addresses} />
         </Switch>
       </BrowserRouter>
     </>
