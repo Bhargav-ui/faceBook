@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import Profile from "./components/Profile/Profile";
 import RecoverPassword from "./components/Profile/RecoverPassword";
 import Addresses from "./components/Addresses/Addresses";
+import Files from "./components/Files/Files";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/recover_password" component={RecoverPassword} />
           <Route exact path="/addresses" component={Addresses} />
+          <Route exact path="/files" component={Files} />
         </Switch>
       </BrowserRouter>
     </>

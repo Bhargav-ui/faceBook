@@ -65,6 +65,11 @@ const Nav = () => {
               Addresses
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/files">
+              Files
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
