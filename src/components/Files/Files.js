@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { uploadFileApi } from "../../apis/Files";
 import Nav from "../Home/Nav";
+import DragAndDrop from "./DragAndDrop";
 
 const Files = () => {
   // Messages
@@ -218,6 +219,8 @@ const Files = () => {
           </div>
         </div>
       </div>
+      {/* Drag and Drop begin */}
+      <DragAndDrop />
     </div>
   );
 };
