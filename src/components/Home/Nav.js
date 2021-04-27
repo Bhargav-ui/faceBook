@@ -70,6 +70,11 @@ const Nav = () => {
               Files
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/data">
+              Data
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
