@@ -8,6 +8,12 @@ const Files = () => {
   const [fileMsg, setFileMsg] = useState("");
   const [apiMsg, setApiMsg] = useState("");
 
+  const [data, setData] = useState(
+    localStorage.getItem("data") == null
+      ? []
+      : JSON.parse(localStorage.getItem("data"))
+  );
+
   // values
   const [file, setFile] = useState([]);
   const [allowedMimeTypes, setAllowedMimeTypes] = useState([
