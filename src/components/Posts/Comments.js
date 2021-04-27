@@ -9,6 +9,7 @@ const Comments = ({ comment }) => {
         <img src={comment.user_pic} alt="" className="link-icon img-round" />
         <div className="media-body ml-2 fb-bg pl-1 rounded-lg">
           <strong>{comment.user_name}</strong>
+          
           <p>{comment.comment}</p>
         </div>
       </div>
