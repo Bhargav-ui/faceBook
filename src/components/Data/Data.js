@@ -28,7 +28,8 @@ const Data = () => {
       data.push(friendJsonData);
       setData([...data]);
       localStorage.setItem("data", JSON.stringify(data));
-    } else {
+    } else 
+    {
       setNameMsg("Min 2 characters");
     }
   };
