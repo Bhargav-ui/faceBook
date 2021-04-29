@@ -50,7 +50,7 @@ const Posts = () => {
   const postUnLiked = (post_id) => {
     postUnLikeApi("react app", userId, post_id).then((response) => {
       if (response.data.result == "success") {
-
+ 
         setPosts(posts.map((post) => {
           if (post.post_id == post_id) {
             post.is_liked = "false";

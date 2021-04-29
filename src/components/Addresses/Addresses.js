@@ -7,6 +7,7 @@ import Nav from "../Home/Nav";
 const Addresses = () => {
   const [showAddAddressForm, setShowAddAddressForm] = useState(false);
   const [addresses, setAddresses] = useState(
+    localStorage.getItem("addresses") == null ? []:
     JSON.parse(localStorage.getItem("addresses"))
   );
 
