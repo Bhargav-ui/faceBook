@@ -5,6 +5,11 @@ import { faHome, faEnvelope, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Nav = () => {
+  let freinds =
+    localStorage.getItem("data") == null
+      ? []
+      : JSON.parse(localStorage.getItem("data"));
+  const [noOfFriends, setNumberOfFriends] = useState(freinds.length); 
   const [navDataClass, setNavDataClass] = useState("collapse navbar-collapse");
   const [toggleNavStatus, setToggleNavStatus] = useState(false);
 
@@ -74,6 +79,9 @@ const Nav = () => {
             <Link className="nav-link" to="/data">
               Data
             </Link>
+          </li>
+          <li className="nav-item">
+            Friends <span class="badge badge-light">{noOfFriends}</span>
           </li>
         </ul>
       </div>

@@ -2,6 +2,12 @@ import { useState } from "react";
 import Nav from "../Home/Nav";
 
 const Data = () => {
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [editName, setEditName] = useState("");
+  const [editNameMsg, setEditNameMsg] = useState("");
+  const [editMsg, setEditMsg] = useState("");
+  const [editFriendId, setEditFriendId] = useState("");
+
   const [data, setData] = useState(
     localStorage.getItem("data") == null
       ? []
@@ -52,6 +58,38 @@ const Data = () => {
     localStorage.setItem("data", JSON.stringify(newFriends));
   };
 
+  const editFriend = (e) => {
+    setShowUpdate(true);
+    let id = e.target.getAttribute("friendid");
+    let friendName = "";
+    data.map((friend) => {
+      if (friend.id == id) {
+        friendName = friend.name;
+      }
+    });
+    console.log(friendName);
+    setEditName(friendName);
+    setEditFriendId(id);
+  };
+
+  const updateFriendName = () => {
+    if (editName.length <= 1) {
+      setEditNameMsg("Min 2 characters");
+    } else {
+      let newData = data.map((friend) => {
+        if (friend.id == editFriendId) {
+          friend.name = editName;
+        }
+        return friend;
+      });
+      setData([...newData]);
+      setShowUpdate(false);
+      setEditName("");
+      setEditFriendId("");
+      localStorage.setItem("data", JSON.stringify(newData));
+    }
+  };
+
   return (
     <div className="container fixed-top-padding">
       <Nav />
@@ -80,6 +118,42 @@ const Data = () => {
           </div>
         </div>
       </div>
+
+      {showUpdate && (
+        <div className="row">
+          <div className="col-lg-2"></div>
+          <div className="col-lg-7">
+            <div className="card shadow border-0 mt-4 p-3">
+              <div className="card-data">
+                <label>
+                  <small>Friend Name</small>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Friend name"
+                  value={editName}
+                  className="form-control"
+                  onChange={(e) => setEditName(e.target.value)}
+                />
+                <div className="text-warning">
+                  <small>{editNameMsg}</small>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-success mt-4"
+                  onClick={updateFriendName}
+                >
+                  Update Name
+                </button>
+                <div className="text-success">
+                  <small>{editMsg}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-7">
@@ -89,6 +163,14 @@ const Data = () => {
                 <div className="row">
                   <div className="col-lg-9">{friend.name}</div>
                   <div className="col-lg-3 text-right">
+                    <span
+                      friendid={friend.id}
+                      className="fb-pointer"
+                      onClick={editFriend}
+                    >
+                      Edit
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <span
                       friendid={friend.id}
                       className="fb-pointer"
