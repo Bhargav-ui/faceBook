@@ -18,7 +18,8 @@ const Data = () => {
       data.push(name);
       setData([...data]);
       localStorage.setItem("data", JSON.stringify(data));
-    } else {
+    } else 
+    {
       setNameMsg("Min 2 characters");
     }
   };

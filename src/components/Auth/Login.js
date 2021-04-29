@@ -154,7 +154,7 @@ const Login = () => {
 
 
 
-             <div className="modal fade show fb-modal" tabIndex="-1">
+           {showSignupDialog &&  <div className="modal fade show fb-modal" tabIndex="-1">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -219,6 +219,7 @@ const Login = () => {
                 </div>
             </div>
             }
+            
         </>
     )
 }
